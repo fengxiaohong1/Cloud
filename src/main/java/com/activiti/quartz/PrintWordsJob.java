@@ -11,7 +11,7 @@ public class PrintWordsJob implements Job {
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
         String date =  new SimpleDateFormat("yy-mm-dd HH-mm-ss").format(new Date());
-        System.out.println("date:"+date);
+        System.out.println("你好："+date);
     }
 
 }

@@ -7,6 +7,9 @@ import org.quartz.impl.StdSchedulerFactory;
 import java.util.Date;
 
 
+/**
+ * @author fxh
+ */
 public class MyScheduler {
 
     public void quartzTest() throws SchedulerException {
