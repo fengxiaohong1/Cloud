@@ -1,4 +1,4 @@
-package com.activiti.app.quartz;
+package com.activiti.quartz;
 
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
