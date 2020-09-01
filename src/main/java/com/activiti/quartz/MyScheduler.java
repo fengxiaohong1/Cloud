@@ -13,8 +13,10 @@ import java.util.Date;
 public class MyScheduler {
 
     public void quartzTest() throws SchedulerException {
+        Date date = new Date();
+        long startTime = date.getTime() + 3000;
         JobDetail jobDetail = JobBuilder.newJob(PrintWordsJob.class)
-                .withIdentity("job1", "group1").build();
+                .withIdentity(startTime+"", "group1").build();
 
        /* Trigger trigger =  TriggerBuilder.newTrigger().withIdentity("trigger1","triggerGroup1")
                 .startNow()
@@ -22,13 +24,12 @@ public class MyScheduler {
                 .withIntervalInSeconds(1)//每隔1s执行一次
                 .repeatForever()).build();//一直执行*/
 
-        Date date = new Date();
-        long startTime = date.getTime() + 3000;
+
 
         CronTrigger c = TriggerBuilder.newTrigger()
                 .startAt(new Date(startTime))
-                .withIdentity("t1", "1")
-                .withSchedule(CronScheduleBuilder.cronSchedule("* * * * * * *"))
+                .withIdentity(startTime+"", "1")
+                .withSchedule(CronScheduleBuilder.cronSchedule("0 * 16 * * ? "))
                 .build();
         //创建SchedulerFactory对象  注意是new的是StdSchedulerFactory Std开头
         SchedulerFactory schedulerFactory = new StdSchedulerFactory();

@@ -17,4 +17,7 @@ spring:
 jasypt:
   encryptor:
     password: demo
-
+logging:
+ # config: log4j2-spring.xml #默认的日志配置文件名是log4j2-spring.xml ,如果是默认的配置文件名则可以不需要配置文件名，否则需要配置文件名
+  level:
+    cn.jay.repository: trace
